@@ -1,0 +1,58 @@
+body {
+    font-family: 'Handlee', cursive;
+    display: grid;
+}
+
+h1 {
+  text-align: center;
+}
+
+/* Select Game */
+#options{
+  text-align: center;
+  align-items: center;
+}
+
+#options p {
+  font-size: 30px;
+}
+
+button.option {
+  width: 210px;
+  height: 50px;
+  margin: auto;
+  margin-top: 5px;
+  font-size: 20px;
+}
+
+/* Game */
+#game-box {
+  display: grid;
+}
+
+table {
+  margin-left: auto;
+  margin-right: auto;
+  border-collapse: collapse;
+}
+
+table td {
+    overflow: hidden;
+    text-align: center;
+    width: 70px;
+    height: 70px;
+    font-size: 45px;
+    cursor: pointer;
+}
+
+button.reset {
+  width: 210px;
+  height: 30px;
+  margin: auto;
+  margin-top: 15px;
+}
+
+#resultText{
+    font-size: 50px;
+    text-align: center;
+}
