@@ -2,7 +2,6 @@ let gameEnded = false;
 const player1 = 'X';
 const player2 = 'O';
 let player_user = player1;
-const resultText = document.getElementById('resultText');
 let xyValue = 3;
 let gameArray = [];
 
@@ -10,7 +9,6 @@ let gameArray = [];
 function selectBoard(val) {
     xyValue = val;
     gameArray = newGameArray();
-    console.log(gameArray)
     const tableNode = document.createElement("table");
     tableNode.setAttribute("border", '1');
     for (let i = 0; i < xyValue; ++i) {
@@ -55,6 +53,7 @@ function gameLogic(row1, row2, marker) {
     if (gameEnded || gameArray[row1][row2] !== '') {
         return;
     }
+    const resultText = getResultElement();
     document.getElementById(row1 + '' + row2).innerHTML = marker;
     gameArray[row1][row2] = marker;
     const winStreak = getWinStreak(marker);
@@ -94,6 +93,7 @@ function gameLogic(row1, row2, marker) {
 
 // Function to start new game
 function newGame() {
+    const resultText = getResultElement();
     gameArray = newGameArray();
     gameEnded = false;
     const gameRows = document.getElementsByClassName('game-row');
@@ -116,6 +116,12 @@ function newGameArray() {
         }
     }
     return array;
+}
+
+// function to get result element
+
+function getResultElement() {
+    return document.getElementById('resultText');
 }
 
 // Function to generate random number  
@@ -168,7 +174,8 @@ function getWinStreak(player) {
                 return { success: true, type: 'diagonal1', data: diagonalStreak1 };
             }
         }
-        if (gameArray[i][xyValue - i] === player) {
+        
+        if (gameArray[i][xyValue - 1 - i] === player) {
             diagonalStreak2.push({ row1: i, row2: xyValue - i });
             if (diagonalStreak2.length === xyValue) {
                 return { success: true, type: 'diagonal2', data: diagonalStreak2 };
@@ -177,3 +184,5 @@ function getWinStreak(player) {
     }
     return { success: false };
 }
+
+module.exports = { getWinStreak }
