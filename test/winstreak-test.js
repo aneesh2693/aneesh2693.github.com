@@ -45,12 +45,12 @@ describe("Winstreak test", function () {
     it("Succeed if vertical is filled by player in 3x3", function () {
         const revert = gameModule.__set__({
             gameArray: [
-            ['O', 'X', 'X'],
-            ['O', 'X', 'X'],
-            ['X', 'O', 'X']],
+            ['', '', 'X'],
+            ['O', 'X', ''],
+            ['X', 'O', '']],
             xyValue: 3
         });
         expect(gameModule.getWinStreak('X')).to.have.property('success', true);
         revert();
-    })
+    });
 })
