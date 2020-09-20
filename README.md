@@ -12,3 +12,4 @@
  to <br />
  `module.exports = { getWinStreak };` <br />
 5. Run test command `npm test`
+6. Also, you can run command `npm run test-with-coverage` to get the code coverage along with unit test.
